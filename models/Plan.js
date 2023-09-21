@@ -25,6 +25,9 @@ Plan.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    description: {
+      type: DataTypes.TEXT,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

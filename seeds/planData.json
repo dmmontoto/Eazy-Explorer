@@ -1,0 +1,32 @@
+[
+  {
+    "city": "New York",
+    "date_start": "2023-10-01",
+    "date_end": "2023-10-05",
+    "description": "Exploring the Big Apple!",
+    "user_id": 1,
+    "likes": 10,
+    "posted": true,
+    "date_posted": "2023-09-15"
+  },
+  {
+    "city": "Los Angeles",
+    "date_start": "2023-11-10",
+    "date_end": "2023-11-15",
+    "description": "Sun and surf in LA!",
+    "user_id": 2,
+    "likes": 5,
+    "posted": true,
+    "date_posted": "2023-09-18"
+  },
+  {
+    "city": "San Francisco",
+    "date_start": "2023-12-20",
+    "date_end": "2023-12-25",
+    "description": "Tech tour in SF!",
+    "user_id": 3,
+    "likes": 8,
+    "posted": true,
+    "date_posted": "2023-09-20"
+  }
+]
