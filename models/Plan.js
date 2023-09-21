@@ -32,6 +32,18 @@ Plan.init(
         key: 'id',
       },
     },
+    likes: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    posted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    date_posted: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
   },
   {
     sequelize,
