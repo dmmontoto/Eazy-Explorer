@@ -1,16 +1,15 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Plan } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const userData = await User.findAll({
-      attributes: { include: ['Plan'] },
-      order: [['date_start', 'ASC']],
+    const planData = await Plan.findAll({
+      order: [['likes', 'ASC']],
     });
 
     res.render('homepage', {
-      plans,
+      planData,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -26,5 +25,18 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+router.get('/profile', withAuth, async (req, res) => {
+    try {
+      const planData = await Plan.findAll({ where: { user_id: req.body.user_id } });
+  
+      res.render('profile', {
+        planData,
+        logged_in: req.session.logged_in,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;
