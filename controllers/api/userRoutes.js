@@ -22,7 +22,7 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = userData.user_id;
       req.session.logged_in = true;
       
       res.json({ user: userData, message: 'You are now logged in!' });
@@ -45,9 +45,8 @@ router.post('/logout', (req, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
-    console.log(userData);
-    if (userData) {
+    const findData = await User.findOne({ where: { email: req.body.email } });
+    if (findData) {
       res
         .status(400)
         .json({ message: 'Email already exists!' });
@@ -63,16 +62,17 @@ router.post('/signup', async (req, res) => {
       return;
     }
 
-    userData = User.create({
+    const userData = User.create({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
       user_id: Math.floor(Math.random() * 30000)
     });
 
-    res.json({ user: userData, message: 'You are now signed up!' });
+    res.status(200).json({ user: userData, message: 'You are now signed up!' });
 
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });

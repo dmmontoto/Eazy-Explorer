@@ -28,7 +28,12 @@ router.get('/login', (req, res) => {
 
 router.get('/profile', withAuth, async (req, res) => {
     try {
-      const planData = await Plan.findAll({ where: { user_id: req.body.user_id } });
+      
+    const planData = await Plan.findAll({
+      where: {
+        user_id: req.session.user_id,
+      }
+    });
   
       res.render('profile', {
         planData,
