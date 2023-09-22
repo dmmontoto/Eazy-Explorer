@@ -1,0 +1,21 @@
+[
+    {
+      "description": "My name is Sam. This is cool.",
+      "user_id": 1, 
+      "plan_id": 1, 
+      "date_posted": "2023-09-21T12:00:00Z"
+    },
+    {
+      "description": "My name is David. I am jealous.",
+      "user_id": 2, 
+      "plan_id": 1, 
+      "date_posted": "2023-09-21T12:30:00Z"
+    },
+    {
+      "description": "Wow!",
+      "user_id": 1, 
+      "plan_id": 2, 
+      "date_posted": "2023-09-21T13:00:00Z"
+    }
+  ]
+  
