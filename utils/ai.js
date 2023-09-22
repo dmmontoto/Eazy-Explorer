@@ -36,7 +36,7 @@ async function fetchIdeas(city, dates) {
   }
 }
 
-// fetchIdeas("Antartica", "August 10-12");
+fetchIdeas("France", "August 10-12");
 
 // Export function
 module.exports = fetchIdeas;
