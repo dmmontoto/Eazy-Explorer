@@ -11,7 +11,7 @@ Plan.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    city: {
+    location: {
       type: DataTypes.STRING,
       allowNull: false,
     },

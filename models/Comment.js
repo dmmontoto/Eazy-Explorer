@@ -21,12 +21,12 @@ Comment.init(
         key: 'user_id',
       },
     },
-    post_id: {
+    plan_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'plan',
-            key: 'id'
-        }
+          model: 'plan',
+          key: 'id',
+        },
     },
     date_posted: {
       type: DataTypes.DATE,

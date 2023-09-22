@@ -2,7 +2,11 @@
     {
         "name": "Sam",
         "email": "samcbrown@protonmail.com",
-        "username": "samxbrown",
         "password": "Pookie1$"
+    },
+    {
+        "name": "David Montoto",
+        "email": "david_montoto@icloud.com",
+        "password": "Programmer123"
     }
 ]
