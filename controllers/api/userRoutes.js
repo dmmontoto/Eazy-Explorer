@@ -43,4 +43,38 @@ router.post('/logout', (req, res) => {
   }
 });
 
+router.post('/signup', async (req, res) => {
+  try {
+    const userData = await User.findOne({ where: { email: req.body.email } });
+    console.log(userData);
+    if (userData) {
+      res
+        .status(400)
+        .json({ message: 'Email already exists!' });
+      console.log('Email already exists!');
+      return;
+    }
+
+    if (req.body.password.length != 8) {
+      res
+        .status(400)
+        .json({ message: 'Password should be 8 characters' });
+      console.log('Password should be 8 characters');
+      return;
+    }
+
+    userData = User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      user_id: Math.floor(Math.random() * 30000)
+    });
+
+    res.json({ user: userData, message: 'You are now signed up!' });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;
