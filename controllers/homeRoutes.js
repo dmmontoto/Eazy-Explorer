@@ -31,7 +31,7 @@ router.get('/profile', withAuth, async (req, res) => {
       
     const planData = await Plan.findAll({
       where: {
-        user_id: req.session.user_id,
+        id: req.session.user_id,
       }
     });
   
