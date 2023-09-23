@@ -22,14 +22,23 @@
       <a href='/'>Home</a>
       {{#if logged_in}}
         <a href='/profile'>Profile</a>
-        |
-        <button id='logout'>Logout</button>
+        
+        <button id='logout' class="btn">Logout</button>
       {{else}}
         <a href='/login'>Login</a>
       {{/if}}
     </nav>
     <main>
-
+     <!--  <div class="post">
+    <div class="post-content">
+        Your post content goes here 
+        <p>This is the post content.</p>
+    </div>
+    <div class="side-div">
+        
+        <p>This is the side div content.</p>
+    </div>-->
+</div>
       {{{body}}}
 
     </main>

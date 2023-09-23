@@ -65,7 +65,26 @@
     color: var(--secondary);
     background-color: var(--dark);
   }
-  
+
+  .post {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+
+  }
+
+  .post-content {
+    flex: 1;
+    
+}
+.side-div {
+  flex-shrink: 0;
+  width: 200px;
+}  
+
   .gallery {
     flex: 4;
     background-color: #fff;

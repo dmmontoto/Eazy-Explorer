@@ -4,8 +4,8 @@
   <div class="col-md-5">
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/trip/{{trip.id}}">{{trip.name}}</a>
+  
+      <a href="/trip/{{plan.location}}"></a>
     </h2>
     <p>
       <span for="img" aria-label="money">💲</span>
@@ -20,5 +20,4 @@
       {{trip.description}}
     </p>
   </div>
-</div>
 {{/each}}
