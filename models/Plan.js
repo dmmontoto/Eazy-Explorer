@@ -11,7 +11,7 @@ Plan.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    city: {
+    location: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -32,7 +32,7 @@ Plan.init(
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'user_id',
+        key: 'id',
       },
     },
     likes: {
