@@ -16,7 +16,7 @@ async function fetchIdeas() {
     },
     body: JSON.stringify([
       {
-        content: `Give me three ideas of things to do in ${location} on the dates of ${dates}. Please make each idea a short sentence and start each sentence with *.`,
+        content: `Can you please give me an image link I can add to my handlebars page that shows ${location}. ALso, give me five ideas of fun activies and things to do in ${location} specifically on the dates of ${dates}. Please make each idea a short sentence and start each sentence with *.`,
         role: 'user'
       }
     ])
@@ -27,7 +27,30 @@ async function fetchIdeas() {
     const data = await response.json();
     console.log(data);
 
+    const responseData = data[0].content;
 
+    // Split the response into lines using the '*' as a delimiter
+    const lines = responseData.split('*').filter(line => line.trim() !== '');
+
+    // The first line is the image link, and the rest are activity descriptions
+    const tripImage = lines[0].trim();
+    const activityDescriptions = lines.slice(1).map(description => description.trim());
+
+    // Log the image and descriptions
+    console.log('Trip Image:', tripImage);
+    console.log('Activity Descriptions:', activityDescriptions);
+
+    // Add the image link to your HTML
+    const tripImageElement = document.querySelector('#trip-image');
+    if (tripImageElement) {
+      tripImageElement.src = tripImage;
+    }
+
+    // Add the activity descriptions with line breaks to the 'trip-desc' element
+    const tripDescElement = document.querySelector('#trip-desc');
+    if (tripDescElement) {
+      tripDescElement.textContent = activityDescriptions.join('\n');
+    }
 
     return data;
   } catch (error) {
@@ -37,8 +60,6 @@ async function fetchIdeas() {
 
 const searchButton = document.querySelector('.search-button');
 searchButton.addEventListener('click', fetchIdeas);
-
-// fetchIdeas("France", "August 10-12");
 
 // Export function
 // module.exports = fetchIdeas;
