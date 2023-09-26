@@ -28,11 +28,11 @@
 <div>
   {{#if logged_in}}
   <form class="form new-comment-form" id="comment-form">
-    <input type="hidden" id="post-id" name="post_id" value="{{id}}" />
+    <input type="hidden" id="plan-id" name="plan_id" value="{{id}}" />
 
     <div class="form-group" id="comment-creator">
-      <label for="comment-description">Add Comment:</label>
-      <input class="form-input" type="text" id="comment-description" name="description" />
+      <label for="new-comment-description">Add Comment:</label>
+      <input class="form-input" type="text" id="new-comment-description" name="description" />
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Post Comment</button>
@@ -42,3 +42,5 @@
   {{/if}}
 
 </div>
+
+<script src="../js/comment.js"></script>

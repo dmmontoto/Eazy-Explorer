@@ -18,34 +18,20 @@
       </div>
       <div class='form-group'>
         <label for='trip-destination'>Trip Destination:</label>
-        <input
-          class='form-input'
-          type='text'
-          id='trip-destination'
-          name='trip-destination'
-        />
+        <input class='form-input' type='text' id='trip-destination' name='trip-destination' />
       </div>
       <div class='form-group'>
         <label for='trip-start date'>Trip Start date:</label>
-        <input
-          class='form-input'
-          type='date'
-          id='date_start'
-          name='trip-start-date'
-        />
+        <input class='form-input' type='date' id='date_start' name='trip-start-date' />
       </div>
       <div class='form-group'>
         <label for='trip-end date'>Trip End date:</label>
-        <input
-          class='form-input'
-          type='date'
-          id='date_end'
-          name='trip-end-date'
-        />
+        <input class='form-input' type='date' id='date_end' name='trip-end-date' />
       </div>
       <div class='search-bar'>
         <label for='search'>Trip Image:</label>
-        <button type='subimit' class='btn btn-primary'>search</button>
+        <img id="trip-image"/>
+        <button type='button' class='btn btn-primary search-button'>Search</button>
       </div>
       <div class='form-group'>
         <label for='project-desc'>Description:</label>
@@ -58,24 +44,23 @@
   </div>
 
   {{#if plans.length}}
-    <div class='col-md-6 trip-list'>
-      <h3>Current Trips:</h3>
+  <div class='col-md-6 trip-list'>
+    <h3>Current Trips:</h3>
 
-      {{#each plans as |plan|}}
-        <div class='row mb-2'>
-          <div class='col-md-8'>
-            <h4><a href='/plan/{{plan.id}}'>{{plan.location}}</a></h4>
-          </div>
-          <div class='col-md-4'>
-            <button
-              class='btn btn-sm btn-danger'
-              data-id='{{plan.id}}'
-            >DELETE</button>
-          </div>
-        </div>
-      {{/each}}
+    {{#each plans as |plan|}}
+    <div class='row mb-2'>
+      <div class='col-md-8'>
+        <h4><a href='/plan/{{plan.id}}'>{{plan.location}}</a></h4>
+      </div>
+      <div class='col-md-4'>
+        <button class='btn btn-sm btn-danger' data-id='{{plan.id}}'>DELETE</button>
+      </div>
     </div>
+    {{/each}}
+  </div>
   {{/if}}
 </div>
 
+
 <script src='../js/profile.js'></script>
+<script src="../js/ai.js"></script>
