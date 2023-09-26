@@ -5,7 +5,7 @@ const addCommentHandler = async (event) => {
     const description = document.querySelector('#new-comment-description').value;
     console.log(plan_id);
     if (plan_id && description) {
-        const response = await fetch(`/api/plan/${ plan_id }`, { 
+        const response = await fetch(`/api/comment`, { 
           method: 'POST',
           body: JSON.stringify({ description, plan_id }), 
           headers: {
