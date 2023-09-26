@@ -1,51 +1,81 @@
 <!-- adding html header welcome, and the user's name -->
-<div class="row">
-  <div class="col-auto">
+<div class='row'>
+  <div class='col-auto'>
     <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
 
 <!-- header to plan a new trip -->
-<div class="row mt-4">
-  <div class="col-md-6">
+<div class='row mt-4'>
+  <div class='col-md-6'>
     <h3>Plan a new trip:</h3>
 
-<!-- area to input trip information -->
-    <form class="form new-trip-form">
-      <div class="form-group">
-        <label for="trip-name">trip name:</label>
-        <input class="form-input" type="text" id="trip-name" name="trip-name" />
+    <!-- area to input trip information -->
+    <form class='form new-trip-form'>
+      <div class='form-group'>
+        <label for='trip-name'>Trip Name:</label>
+        <input class='form-input' type='text' id='trip-name' name='trip-name' />
       </div>
-      <div class="form-group">
-        <label for="trip-destination">trip-destination:</label>
-        <input class="form-input" type="text" id="trip-destination" name="trip-destination" />
+      <div class='form-group'>
+        <label for='trip-destination'>Trip Destination:</label>
+        <input
+          class='form-input'
+          type='text'
+          id='trip-destination'
+          name='trip-destination'
+        />
       </div>
-      <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="trip-desc" name="trip-desc"></textarea>
+      <div class='form-group'>
+        <label for='trip-start date'>Trip Start date:</label>
+        <input
+          class='form-input'
+          type='date'
+          id='date_start'
+          name='trip-start-date'
+        />
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+      <div class='form-group'>
+        <label for='trip-end date'>Trip End date:</label>
+        <input
+          class='form-input'
+          type='date'
+          id='date_end'
+          name='trip-end-date'
+        />
+      </div>
+      <div class='search-bar'>
+        <label for='search'>Trip Image:</label>
+        <button type='subimit' class='btn btn-primary'>search</button>
+      </div>
+      <div class='form-group'>
+        <label for='project-desc'>Description:</label>
+        <textarea class='form-input' id='trip-desc' name='trip-desc'></textarea>
+      </div>
+      <div class='form-group'>
+        <button type='submit' class='btn btn-primary'>Create</button>
       </div>
     </form>
   </div>
 
   {{#if plans.length}}
-  <div class="col-md-6 trip-list">
-    <h3>Current Trips:</h3>
+    <div class='col-md-6 trip-list'>
+      <h3>Current Trips:</h3>
 
-    {{#each plans as |plan|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/plan/{{plan.id}}">{{plan.location}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{plan.id}}">DELETE</button>
-      </div>
+      {{#each plans as |plan|}}
+        <div class='row mb-2'>
+          <div class='col-md-8'>
+            <h4><a href='/plan/{{plan.id}}'>{{plan.location}}</a></h4>
+          </div>
+          <div class='col-md-4'>
+            <button
+              class='btn btn-sm btn-danger'
+              data-id='{{plan.id}}'
+            >DELETE</button>
+          </div>
+        </div>
+      {{/each}}
     </div>
-    {{/each}}
-  </div>
   {{/if}}
 </div>
 
-<script src="../js/profile.js"></script>
+<script src='../js/profile.js'></script>
