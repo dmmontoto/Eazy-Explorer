@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Plan } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/api/plan', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newPlan = await Plan.create({
       ...req.body,
@@ -15,7 +15,7 @@ router.post('/api/plan', withAuth, async (req, res) => {
   }
 });
 
-router.delete('api/plan/:id', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const planData = await Plan.destroy({
       where: {
