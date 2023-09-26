@@ -31,6 +31,7 @@ Comment.init(
     date_posted: {
       type: DataTypes.DATE,
       allowNull: true,
+      defaultValue: DataTypes.NOW,
     },
   },
   {
