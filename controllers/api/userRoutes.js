@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -59,37 +59,37 @@ router.post('/logout', (req, res) => {
   }
 });
 
-/*router.post('/signup', async (req, res) => {
-  try {
-    const findData = await User.findOne({ where: { email: req.body.email } });
-    if (findData) {
-      res
-        .status(400)
-        .json({ message: 'Email already exists!' });
-      console.log('Email already exists!');
-      return;
-    }
+// router.post('/signup', async (req, res) => {
+//   try {
+//     const findData = await User.findOne({ where: { email: req.body.email } });
+//     if (findData) {
+//       res
+//         .status(400)
+//         .json({ message: 'Email already exists!' });
+//       console.log('Email already exists!');
+//       return;
+//     }
 
-    if (req.body.password.length != 8) {
-      res
-        .status(400)
-        .json({ message: 'Password should be 8 characters' });
-      console.log('Password should be 8 characters');
-      return;
-    }
+//     if (req.body.password.length != 8) {
+//       res
+//         .status(400)
+//         .json({ message: 'Password should be 8 characters' });
+//       console.log('Password should be 8 characters');
+//       return;
+//     }
 
-    const userData = User.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-    });
+//     const userData = User.create({
+//       name: req.body.name,
+//       email: req.body.email,
+//       password: req.body.password,
+//     });
 
-    res.status(200).json({ user: userData, message: 'You are now signed up!' });
+//     res.status(200).json({ user: userData, message: 'You are now signed up!' });
 
-  } catch (err) {
-    console.log(err);
-    res.status(400).json(err);
-  }
-}); */
+//   } catch (err) {
+//     console.log(err);
+//     res.status(400).json(err);
+//   }
+// }); 
 
 module.exports = router;

@@ -19,7 +19,7 @@ const newFormHandler = async (event) => {
         document.location.replace('/profile')
         console.log('third test');
       } else {
-        const errorText = await response.text(); // Get the response text
+        const errorText = await response.text(); 
         console.error('Error:', errorText);
         alert('Failed to create trip');
       }
