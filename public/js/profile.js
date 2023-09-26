@@ -6,17 +6,21 @@ const newFormHandler = async (event) => {
     const description = document.querySelector('#trip-desc').value.trim();
   
     if (name && location && description) {
-      const response = await fetch(`/api/plans`, {
+      const response = await fetch(`/api/plan/`, {
         method: 'POST',
         body: JSON.stringify({ name, location, description }),
         headers: {
           'Content-Type': 'application/json',
         },
+       
       });
-  
+      console.log('second test');
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/profile')
+        console.log('third test');
       } else {
+        const errorText = await response.text(); // Get the response text
+        console.error('Error:', errorText);
         alert('Failed to create trip');
       }
     }
@@ -26,7 +30,7 @@ const newFormHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/plans/${id}`, {
+      const response = await fetch(`/api/plan/${id}`, {
         method: 'DELETE',
       });
   
@@ -42,7 +46,6 @@ const newFormHandler = async (event) => {
     .querySelector('.new-trip-form')
     .addEventListener('submit', newFormHandler);
   
-  /* document
+   document
     .querySelector('.trip-list')
     .addEventListener('click', delButtonHandler);
-*/

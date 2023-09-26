@@ -5,6 +5,6 @@ const planRoutes = require('./planRoutes');
 
 
 router.use('/users', userRoutes);
-router.use('/plans', planRoutes);
+router.use('/plan', planRoutes);
 
 module.exports = router;
