@@ -2,22 +2,26 @@ const newFormHandler = async (event) => {
     event.preventDefault();
   
     const name = document.querySelector('#trip-name').value.trim();
-    const trip_destination = document.querySelector('#trip-destination').value.trim();
-    const trip_desc = document.querySelector('#trip-desc').value.trim();
+    const location = document.querySelector('#trip-destination').value.trim();
+    const description = document.querySelector('#trip-desc').value.trim();
   
-    if (name && trip_destination && trip_desc) {
-      const response = await fetch(`/api/projects`, {
+    if (name && location && description) {
+      const response = await fetch(`/api/plan/`, {
         method: 'POST',
-        body: JSON.stringify({ name, trip_destination, trip_desc }),
+        body: JSON.stringify({ name, location, description }),
         headers: {
           'Content-Type': 'application/json',
         },
+       
       });
-  
+      console.log('second test');
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/profile')
+        console.log('third test');
       } else {
-        alert('Failed to create project');
+        const errorText = await response.text(); // Get the response text
+        console.error('Error:', errorText);
+        alert('Failed to create trip');
       }
     }
   };
@@ -26,14 +30,14 @@ const newFormHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/projects/${id}`, {
+      const response = await fetch(`/api/plan/${id}`, {
         method: 'DELETE',
       });
   
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert('Failed to delete project');
+        alert('Failed to delete plan');
       }
     }
   };
@@ -42,6 +46,6 @@ const newFormHandler = async (event) => {
     .querySelector('.new-trip-form')
     .addEventListener('submit', newFormHandler);
   
-  document
+   document
     .querySelector('.trip-list')
-    .addEventListener('click', delButtonHandler)
+    .addEventListener('click', delButtonHandler);

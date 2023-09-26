@@ -1,24 +1,23 @@
 <!-- Loop over each object in the projects array -->
-{{#each trips as |trip| }}
+{{#each plans as |plan| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/trip/{{trip.id}}">{{trip.name}}</a>
+  
+      <a href="/plan/{{plan.location}}"></a>
     </h2>
     <p>
-      <span for="img" aria-label="money">💲</span>
+      <span for="img" aria-label="money">✈️</span>
       <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount trip.needed_funding}}</span>
-      needed!
+      <span class="trip-location">{{plan.location}}</span>
+      trip!
     </p>
-    <p>Created by {{trip.user.name}} on {{format_date trip.date_created}}</p>
+    <p>{{plan.user.name}} will be going {{format_date plan.date_start}} until {{format_date plan.date_end}}</p>
   </div>
   <div class="col-md-7">
     <p>
-      {{trip.description}}
+      {{plan.description}}
     </p>
   </div>
-</div>
 {{/each}}
