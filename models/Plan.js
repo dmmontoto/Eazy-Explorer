@@ -50,6 +50,11 @@ Plan.init(
       allowNull: true,
       defaultValue: DataTypes.NOW,
     },
+    img_src: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
+    }
   },
   {
     sequelize,

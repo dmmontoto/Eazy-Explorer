@@ -1,14 +1,14 @@
-<header style="background:white; width:100%; color:black;">
-  <h1 style="font-weight:bold">Recent Destination</h1>
-  <p>Explore all Destionations</p>
-  <button class="btn btn-primary" style="background:black; border:none">View All</button>
+<header style="background:white; width:100%; color:black; padding:10px;">
+  <h1 style="font-weight:bold;font-size:300%">Recent Destination</h1>
+  <p style="font-size:100%">Unlock New Horizons with Eazy Explorer!</p>
+  <button class="btn btn-primary" style="background:black; border:none; font-size:100%">View All</button>
 
 </header>
 <!-- Loop over each object in the projects array -->
 {{#each plans as |plan| }}
   <div class="col-md-4">
       <div class="card">
-      <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Avatar" style="width:100%">
+      <img src="{{plan.img_src}}" alt="Avatar" style="width:100%;height:500%">
       <div class="card-body">
         <p>
           <span for="img" aria-label="money">✈️</span>
@@ -19,7 +19,6 @@
         <p>{{plan.user.name}} will be going {{format_date plan.date_start}} until {{format_date plan.date_end}}</p>
         <p>{{plan.description}}</p>
         <a href="/plan/{{plan.id}}" class="btn btn-primary stretched-link">More details</a>
-        
       </div>
     </div>
   </div>

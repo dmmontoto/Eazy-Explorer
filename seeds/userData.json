@@ -8,5 +8,10 @@
         "name": "David Montoto",
         "email": "david_montoto@icloud.com",
         "password": "Programmer123"
+    },
+    {
+        "name": "Geon Kang",
+        "email": "kanggeon216@gmail.com",
+        "password": "password"
     }
 ]
