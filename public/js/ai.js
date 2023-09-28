@@ -14,7 +14,7 @@ async function fetchIdeas() {
     },
     body: JSON.stringify([
       {
-        content: `Give me five ideas of fun activities and things to do in ${location} specifically on the dates of ${dates}. Please make each idea a short sentence and separate them using an asterisk (*).`,
+        content: `Give me five ideas of fun activities and things to do in ${location} specifically on the dates of ${dates}. Please make each idea a short sentence and separate them using an asterisk (*). If this location is not real, please return "This is not a real location" (Example: Narnia)`,
         role: 'user'
       }
     ])
