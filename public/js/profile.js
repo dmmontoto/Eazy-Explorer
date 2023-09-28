@@ -4,13 +4,14 @@ const newFormHandler = async (event) => {
     const name = document.querySelector('#trip-name').value.trim();
     const location = document.querySelector('#trip-destination').value.trim();
     const description = document.querySelector('#trip-desc').value.trim();
+    const img_src = document.querySelector('#trip-image').value.trim();
     const date_start = document.querySelector('#date_start').value;
     const date_end = document.querySelector('#date_end').value;
   
-    if (name && location && description && date_start && date_end) {
+    if (name && location && description && img_src && date_start && date_end) {
       const response = await fetch('/api/plan', {
         method: 'POST',
-        body: JSON.stringify({ name, location, description, date_start, date_end }),
+        body: JSON.stringify({ name, location, description, date_start, date_end, img_src }),
         headers: {
           'Content-Type': 'application/json',
         },
