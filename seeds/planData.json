@@ -7,7 +7,8 @@
     "user_id": 1,
     "likes": 10,
     "posted": true,
-    "date_posted": "2023-09-15"
+    "date_posted": "2023-09-15",
+    "img_src": "https://www.citysignal.com/wp-content/uploads/2021/10/most-instagrammable-nyc-spots.jpeg"
   },
   {
     "location": "Los Angeles",
@@ -17,7 +18,8 @@
     "user_id": 2,
     "likes": 5,
     "posted": true,
-    "date_posted": "2023-09-18"
+    "date_posted": "2023-09-18",
+    "img_src": "https://static.independent.co.uk/2023/07/07/10/iStock-515064346.jpg"
   },
   {
     "location": "San Francisco",
@@ -27,6 +29,7 @@
     "user_id": 3,
     "likes": 8,
     "posted": true,
-    "date_posted": "2023-09-20"
+    "date_posted": "2023-09-20",
+    "img_src": "https://cdn.britannica.com/13/77413-050-95217C0B/Golden-Gate-Bridge-San-Francisco.jpg"
   }
 ]
