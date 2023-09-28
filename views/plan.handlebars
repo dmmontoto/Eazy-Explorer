@@ -1,46 +1,48 @@
-<div class="text-center">
-  <h2>{{name}}</h2>
-
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{ format_date date_posted}}</p>
-  <p>
-
-    <span class="trip-destination">{{ location }}</span>
-    trip information
-  </p>
-  <p>
-    <button class="btn btn-primary">Plan your trip!</button>
-  </p>
+<div class="post">
+  <div class="post-body">
+    <img src="{{ img_src }}" alt="No image added"/>
+    <p>
+      <span for="img" aria-label="money">✈️</span>
+      <!-- Pass needed_funding value to the helper function -->
+      <span class="trip-location">{{location}}</span>
+      trip!
+    </p>
+    <p>{{user.name}} will be going {{format_date date_start}} until {{format_date date_end}}</p>
+    <p>Activities Planned:</p>
+    <p>{{description}}</p>
+  </div>
 </div>
 
-<div class="comments">
-  <div class="align-center" id="comment-title">
-    <h3>Comments</h3>
-  </div>
-  {{#each comments}}
-  <div class="comment" id="comment">
-    <p><strong>{{ user.name }}</strong> said:</p>
-    <p id="comment-description">{{ description }}</p>
-    <p>Date posted: {{ format_date date_posted }}</p>
-  </div>
-  {{/each}}
+<div class="align-center" id="comment-title">
+  <h3 id="comment-header">Comments</h3>
 </div>
-<div>
-  {{#if logged_in}}
-  <form class="form new-comment-form" id="comment-form">
-    <input type="hidden" id="plan-id" name="plan_id" value="{{id}}" />
-
-    <div class="form-group" id="comment-creator">
-      <label for="new-comment-description">Add Comment:</label>
-      <input class="form-input" type="text" id="new-comment-description" name="description" />
+<div class="comments-body">
+  <div class="post-comments">
+    {{#each comments}}
+    <div class="comment" id="comment">
+      <p><strong>{{ user.name }}</strong> said:</p>
+      <p id="comment-description">{{ description }}</p>
+      <p>Date posted: {{ format_date date_posted }}</p>
     </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Post Comment</button>
-    </div>
-  </form>
+    {{/each}}
+  </div>
+  <div>
+    {{#if logged_in}}
+    <form class="form new-comment-form" id="comment-form">
+      <input type="hidden" id="plan-id" name="plan_id" value="{{id}}" />
 
-  {{/if}}
+      <div class="form-group" id="comment-creator">
+        <label for="new-comment-description">Add Comment:</label>
+        <input class="form-input" type="text" id="new-comment-description" name="description" />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Post Comment</button>
+      </div>
+    </form>
 
+    {{/if}}
+
+  </div>
 </div>
 
 <script src="../js/comment.js"></script>
