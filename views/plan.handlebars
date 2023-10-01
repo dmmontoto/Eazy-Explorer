@@ -1,6 +1,6 @@
 <div class="post">
   <div class="post-body">
-    <img src="{{ img_src }}" alt="No image added"/>
+    <img src="{{ img_src }}" alt="No image added" />
     <p>
       <span for="img" aria-label="money">✈️</span>
       <!-- Pass needed_funding value to the helper function -->
@@ -8,7 +8,7 @@
       trip!
     </p>
     <p>{{user.name}} will be going {{format_date date_start}} until {{format_date date_end}}</p>
-    <p>Activities Planned:</p>
+    <p class="activities">Activities Planned:</p>
     <p>{{description}}</p>
   </div>
 </div>
@@ -19,12 +19,19 @@
 <div class="comments-body">
   <div class="post-comments">
     {{#each comments}}
-    <div class="comment" id="comment">
-      <p><strong>{{ user.name }}</strong> said:</p>
-      <p id="comment-description">{{ description }}</p>
-      <p>Date posted: {{ format_date date_posted }}</p>
+    <div class="row" id="comment-box">
+      <div class="col-md-4">
+        <p><strong>{{ user.name }}</strong></p>
+        <p>Date posted: {{ format_date date_posted }}</p>
+      </div>
+      <div class="col-md-8">
+        <div class="comment" id="comment">
+          <p id="comment-description">{{ description }}</p>
+        </div>
+      </div>
     </div>
     {{/each}}
+
   </div>
   <div>
     {{#if logged_in}}
