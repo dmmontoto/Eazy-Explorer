@@ -243,6 +243,7 @@
 #comment-box {
   border: 1px solid #000; 
   border-radius: 10px; 
+  width:80%;
   padding: 10px;
   background-color: var(--primary);
   margin: 10px;

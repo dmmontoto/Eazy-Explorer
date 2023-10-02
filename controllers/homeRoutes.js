@@ -45,6 +45,8 @@ router.get('/plan/:id', withAuth, async (req, res) => {
       ],
     });
 
+
+
     const plan = planData.get({ plain: true });
   
       res.render('plan', {
@@ -55,6 +57,34 @@ router.get('/plan/:id', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  router.get('/comments/:id', withAuth, async (req, res) => {
+    try {
+      
+    const commentData = await Plan.findByPk(req.params.id, {
+      include: [
+        {
+          model: Comment,
+          include: [
+            {
+              model: User,
+              attributes: ['name'],
+            },
+          ],
+        },
+      ],
+    });
+
+  const comment = commentData.get({ plain: true });
+
+    res.render('comments', {
+      ...comment,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
   router.get('/profile', withAuth, async (req, res) => {
     try {
