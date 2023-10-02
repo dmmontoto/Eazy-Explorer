@@ -17,10 +17,10 @@ const newFormHandler = async (event) => {
         },
        
       });
-      console.log('second test');
+      
       if (response.ok) {
         document.location.replace('/profile')
-        console.log('third test');
+        
       } else {
         const errorText = await response.text(); 
         console.error('Error:', errorText);
@@ -38,7 +38,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/plan');
       } else {
         alert('Failed to delete plan');
       }

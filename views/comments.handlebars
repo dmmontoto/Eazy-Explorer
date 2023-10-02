@@ -1,0 +1,27 @@
+<div class="align-center" id="comment-title">
+  <h3 id="comment-header">Comments</h3>
+</div>
+<div class="comments-body">
+  <div class="post-comments">
+    {{#each comments}}
+    <div class="row" id="comment-box">
+      <div class="col-md-4">
+        <p><strong>{{ user.name }}</strong></p>
+        <p>Date posted: {{ format_date date_posted }}</p>
+        
+      </div>
+      
+      <div class="col-md-8">
+        <div class="comment" id="comment">
+          <p id="comment-description">{{ description }}</p>
+        </div>
+        
+      </div>
+       <button class='btn btn-sm btn-danger delete-comment' data-id='{{id}}'>Delete Comment</button>
+    </div>
+   
+    {{/each}}
+
+  </div>
+  
+</div>
