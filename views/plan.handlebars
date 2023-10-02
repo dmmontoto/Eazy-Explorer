@@ -22,13 +22,13 @@
     <div class="row" id="comment-box">
       <div class="col-md-4">
         <p><strong>{{ user.name }}</strong></p>
-        <p>Date posted: {{ format_date date_posted }}</p>
+        <p id="comment-description">{{ description }}</p>
       </div>
-      <div class="col-md-8">
-        <div class="comment" id="comment">
-          <p id="comment-description">{{ description }}</p>
+      <div class="col-md-12">
+        <div class="comment">
+          <p>Date posted: {{ format_date date_posted }}</p>
         </div>
-        <button class='btn btn-sm btn-danger delete-comment' data-id='{{id}}'>Delete Comment</button>
+        <button class='btn btn-sm btn-danger delete-comment' user-id='{{user.name}}' data-id='{{id}}'>Delete Comment</button>
       </div>
     </div>
     {{/each}}
@@ -41,10 +41,10 @@
 
       <div class="form-group" id="comment-creator">
         <label for="new-comment-description">Add Comment:</label>
-        <input class="form-input" type="text" id="new-comment-description" name="description" />
+        <input class="form-input form-control" type="text" id="new-comment-description" name="description" />
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Post Comment</button>
+        <button  type="submit" class="btn btn-primary comment-btn">Post Comment</button>
       </div>
     </form>
 

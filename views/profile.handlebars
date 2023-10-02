@@ -1,13 +1,9 @@
 <!-- adding html header welcome, and the user's name -->
-<div class='row'>
-  <div class='col-auto'>
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
-
+ <h1>Welcome, {{name}}!</h1>
 <!-- header to plan a new trip -->
-<div class='row mt-4'>
-  <div class='col-md-6'>
+<div class='row mt-2 mp-4'>
+  <div class='col-md-8 trip-form-container'>
+    
     <h3>Plan a new trip:</h3>
 
     <!-- area to input trip information -->
@@ -28,10 +24,6 @@
         <label for='trip-end date'>Trip End date:</label>
         <input class='form-input' type='date' id='date_end' name='trip-end-date' />
       </div>
-      <div class='search-bar'>
-        <label for='search'>Trip Image:</label>
-        <button type='button' class='btn btn-primary search-button'>Search</button>
-      </div>
       <div class='form-group'>
         <label for='project-desc'>Description:</label>
         <textarea class='form-input' id='trip-desc' name='trip-desc'></textarea>
@@ -41,9 +33,10 @@
         <textarea class='form-input' id='trip-image' name='trip-image'></textarea>
       </div>
       <div class='form-group'>
-        <button type='submit' class='btn btn-primary'>Create</button>
+        <button type='submit' class='btn btn-primary create-trip-btn'>Create</button>
       </div>
     </form>
+  </div>
   </div>
 
   {{#if plans.length}}
@@ -59,10 +52,11 @@
         <button class='btn btn-sm btn-danger' data-id='{{plan.id}}'>DELETE</button>
       </div>
     </div>
-    {{/each}}
+    {{/each}} 
+    {{/if}}
   </div>
-  {{/if}}
-</div>
+ 
+
 
 
 <script src='../js/profile.js'></script>

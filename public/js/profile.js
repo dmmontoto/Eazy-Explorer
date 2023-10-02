@@ -29,6 +29,7 @@ const newFormHandler = async (event) => {
     }
   };
   
+  
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
@@ -38,7 +39,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/plan');
+        document.location.replace('/profile');
       } else {
         alert('Failed to delete plan');
       }
@@ -51,4 +52,8 @@ const newFormHandler = async (event) => {
   
    document
     .querySelector('.trip-list')
-    .addEventListener('click', delButtonHandler);
+    
+    const tripList = document.querySelector('.trip-list');
+    if (tripList) {
+      tripList.addEventListener('click', delButtonHandler);
+    }
