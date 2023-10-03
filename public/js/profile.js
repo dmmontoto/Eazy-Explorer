@@ -17,10 +17,10 @@ const newFormHandler = async (event) => {
         },
        
       });
-      console.log('second test');
+      
       if (response.ok) {
         document.location.replace('/profile')
-        console.log('third test');
+        
       } else {
         const errorText = await response.text(); 
         console.error('Error:', errorText);
@@ -28,6 +28,7 @@ const newFormHandler = async (event) => {
       }
     }
   };
+  
   
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
@@ -51,4 +52,8 @@ const newFormHandler = async (event) => {
   
    document
     .querySelector('.trip-list')
-    .addEventListener('click', delButtonHandler);
+    
+    const tripList = document.querySelector('.trip-list');
+    if (tripList) {
+      tripList.addEventListener('click', delButtonHandler);
+    }
