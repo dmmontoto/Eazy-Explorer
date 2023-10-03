@@ -9,7 +9,7 @@ async function fetchIdeas() {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      'X-RapidAPI-Key': 'cb55d331c2msheffcf3623997c3bp1fc0f2jsn2b8f997e3c9f',
+      'X-RapidAPI-Key': '74a73f418emsh8c325d7f91bb73bp128dcajsn3884fc5f12c2',
       'X-RapidAPI-Host': 'chatgpt-api8.p.rapidapi.com'
     },
     body: JSON.stringify([
